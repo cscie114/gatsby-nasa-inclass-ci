@@ -7,7 +7,7 @@ const ArchiveDetailPage = ({ data }) => {
   const apod = data.allNasaJson.nodes[0];
   console.log(data);
   return (
-    <Layout pageTitle={apod.date}>
+    <Layout pageTitle={apod.date+" "+apod.title}>
       <AstroMedia data={apod}></AstroMedia>
       <Link to="/">Return home</Link>
     </Layout>

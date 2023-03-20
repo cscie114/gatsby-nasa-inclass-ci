@@ -7,7 +7,7 @@ const IndexPage = ({ data }) => {
   const apod = data.allNasaJson.nodes[0];
   return (
     <Layout pageTitle="Astronomy Picture of the Day">
-      <h2>{apod.date}</h2>
+      <h3>{apod.date} {apod.title}</h3>
       <AstroMedia data={apod}></AstroMedia>
     </Layout>
   );
