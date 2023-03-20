@@ -1,0 +1,12 @@
+.container {
+    width: 75%;
+    margin: auto;
+    color: darkslategray;
+}
+.container header {
+    border-bottom: 1px solid darkslategray;
+    padding: 1rem 0;
+}
+.container nav a {
+    margin-right: 1rem;
+}

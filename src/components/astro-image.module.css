@@ -1,0 +1,6 @@
+.astro-image-item img {
+    max-width: 100%;
+}
+.astro-image-item {
+    padding: 0 0 2rem 0;
+}
