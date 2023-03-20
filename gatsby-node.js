@@ -49,7 +49,7 @@ exports.createPages = async ({ actions, graphql }) => {
   paginate({
     createPage: createPage,
     items: items,
-    itemsPerPage: 10,
+    itemsPerPage: 15,
     pathPrefix: "/archives",
     component: path.resolve("./src/templates/apod-list.js"),
   });

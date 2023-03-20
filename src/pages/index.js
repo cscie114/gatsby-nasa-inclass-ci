@@ -7,7 +7,7 @@ const IndexPage = ({ data }) => {
   const apod = data.allNasaJson.nodes[0];
   return (
     <Layout pageTitle="Astronomy Picture of the Day">
-      <h3>{apod.date} {apod.title}</h3>
+      <h3>{apod.display_date}: {apod.title}</h3>
       <AstroMedia data={apod}></AstroMedia>
     </Layout>
   );
@@ -22,6 +22,7 @@ export const query = graphql`
         url
         explanation
         date
+        display_date: date(formatString: "MMMM Do, YYYY")
         copyright
         media_type
         title

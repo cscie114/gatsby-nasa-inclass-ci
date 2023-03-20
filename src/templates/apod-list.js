@@ -8,7 +8,7 @@ const ApodListPage = ({ data, pageContext }) => {
     <Layout pageTitle="Archives">
       <ul>
         {images.map((apod) => {
-          return <li key={apod.id}><Link to={"/archives/"+apod.date}>{apod.date}</Link></li>
+          return <li key={apod.id}><Link to={"/archives/"+apod.date}>{apod.date} {apod.title}</Link></li>
         })}
       </ul>
       <div>
