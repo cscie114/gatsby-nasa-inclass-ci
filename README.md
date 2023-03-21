@@ -31,3 +31,9 @@ export END_DATE=$(date +%Y-%m-%d)
 
 curl -s "https://api.nasa.gov/planetary/apod?api_key=$NASA_API_KEY&start_date=$START_DATE&end_date=$END_DATE" | python3 -m json.tool >data/nasa.json
 ```
+
+## Future directions
+
+Wouldn't it be great if the data was sourced directly from the API so we didn't have to refresh our local snapshot?
+
+We could do that using Gatsby's [Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) and in particular the [sourceNodes](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#sourceNodes) extension point along with something like [node-fetch](https://www.npmjs.com/package/node-fetch).
