@@ -26,6 +26,8 @@ To refresh the data:
 
 ```sh
 export NASA_API_KEY="your_api_key"
+export START_DATE=2023-01-01
+export END_DATE=$(date +%Y-%m-%d)
 
-curl -s "https://api.nasa.gov/planetary/apod?api_key=$NASA_API_KEY&start_date=2023-01-01&end_date=2023-03-20" | python3 -m json.tool >data/nasa.json
+curl -s "https://api.nasa.gov/planetary/apod?api_key=$NASA_API_KEY&start_date=$START_DATE&end_date=$END_DATE" | python3 -m json.tool >data/nasa.json
 ```
