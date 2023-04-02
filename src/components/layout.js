@@ -18,7 +18,9 @@ const Layout = ({ pageTitle, children }) => {
       <header>
         <h1>{data.site.siteMetadata.title}</h1>
         <nav>
-          <Link to="/">Home</Link> <Link to="/archives">Archives</Link>
+          <Link to="/">Home</Link>
+          <Link to="/archives">Archives</Link>
+          <Link to="/search">Search</Link>
         </nav>
       </header>
       <main>
