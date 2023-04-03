@@ -24,6 +24,7 @@ function paginate({ createPage, items, itemsPerPage, pathPrefix, component }) {
         currentPage: currentPage,
         previousPagePath: previousPagePath,
         nextPagePath: nextPagePath,
+        pathPrefix: pathPrefix,
       },
     });
   }
@@ -51,6 +52,6 @@ exports.createPages = async ({ actions, graphql }) => {
     items: items,
     itemsPerPage: 15,
     pathPrefix: "/archives",
-    component: path.resolve("./src/templates/apod-list.js"),
+    component: path.resolve("./src/templates/astro-list.js"),
   });
 };

@@ -1,0 +1,9 @@
+@import url('../styles/variables.css');
+
+.searchBox {
+    margin: 0;
+    font-size: 0.8rem;
+}
+.searchBox p {
+    margin: 0;
+}

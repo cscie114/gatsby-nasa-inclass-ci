@@ -2,25 +2,31 @@ import React from "react";
 import { useState } from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
+import * as searchStyles from "./search.module.css"
 
 // Utility function to lowercase the title and explanation for searching
-const normalizeNode = (n) => {
+const normalizeNode = (node) => {
     return {
-        ...n,
-        title: n.title.toLowerCase(),
-        explanation: n.explanation.toLowerCase(),
+        ...node,
+        date: node.date,
+        title: node.title.toLowerCase(),
+        explanation: node.explanation.toLowerCase(),
     }
+}
+
+// Utility function to match a node
+const matchNode = (node, terms) => {
+  const { date, title, explanation } = node;
+  return date.includes(terms) || title.includes(terms) || explanation.includes(terms);
 }
 
 // Utility function to match nodes based on search terms
 const filterNodes = (nodes, terms) => {
-    if(!terms || terms.length == 0) {
+    if(!terms || terms.length === 0) {
         return []
     }
     terms = terms.toLowerCase();
-    return nodes.map(normalizeNode).filter((n) => {
-        return n.date.includes(terms) || n.title.includes(terms) || n.explanation.includes(terms)
-    });
+    return nodes.map(normalizeNode).filter((node) => matchNode(node, terms));
 }
 
 // Search component
@@ -31,19 +37,18 @@ const SearchPage = ({ data }) => {
 
   return (
     <Layout pageTitle="Search">
-      <div>
-        <p style={{margin: 0}}>Enter your search terms: <input type="search" name="q" minLength="2" maxLength="100" style={{width:"100%"}} onChange={handleSearch}></input></p>
-        <p style={{fontSize: "0.8rem", margin: 0}}>Search by date, title, or explanation</p>
+      <div class={searchStyles.searchBox}>
+        <input type="search" name="q" minLength="2" maxLength="100" style={{width:"100%"}} onChange={handleSearch} placeholder="Enter your search terms..."></input>
+        {terms && <p>Searching for: {terms}</p>}
       </div>
-      <div>{terms && <span>Searching for: {terms}</span>}</div>
-        <ul>
-          {matches.map((node, i) => {
-            return (
-                <li key={node.id}>
-                    <Link to={"/archives/" + node.date}>{node.date} {node.title}</Link>
-                </li>)
-            })}
-        </ul>
+      <ul>
+        {matches.map((node, i) => {
+          return (
+              <li key={node.id}>
+                  <Link to={"/archives/" + node.date}>{node.date} {node.title}</Link>
+              </li>)
+          })}
+      </ul>
     </Layout>
   );
 };
