@@ -42,7 +42,7 @@ const SearchPage = ({ data }) => {
         <input type="search" name="q" minLength="2" maxLength="100" style={{width:"100%"}} onChange={handleSearch} placeholder="Enter your search terms..."></input>
       </div>
       <div>
-        {terms && <p>{terms.length} results out of {nodes.length}</p>}
+        {terms && <p>{matches.length} results out of {nodes.length}</p>}
       </div>
       <ul>
         {matches.map((node, i) => {
