@@ -31,10 +31,12 @@ body {
 .container a:visited,
 .container a:active {
     margin-right: 1rem;
-    color: var(--link-color);
+    color: var(--primary-color);
+    text-decoration: none;
 }
 .container a:hover {
-    color: var(--link-active-color);
+    color: var(--secondary-color);
+    text-decoration: underline;
 }
 .container h1 {
     color: var(--heading-color);

@@ -1,6 +1,6 @@
 :root {
-    --link-color: #F2CA27;
-    --link-active-color: #00CFFF;
+    --primary-color: #F2CA27;
+    --secondary-color: #00CFFF;
     --bg-color: #3B3F45;
     --text-color: #f2f1ef;
     --heading-color: #AFB5BC;

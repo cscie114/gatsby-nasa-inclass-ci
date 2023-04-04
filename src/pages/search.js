@@ -33,13 +33,16 @@ const filterNodes = (nodes, terms) => {
 const SearchPage = ({ data }) => {
   const [terms, setTerms] = useState(null);
   const handleSearch = (e) => setTerms(e.target.value);
-  const matches = filterNodes(data.allNasaJson.nodes, terms);
+  const nodes = data.allNasaJson.nodes;
+  const matches = filterNodes(nodes, terms);
 
   return (
     <Layout pageTitle="Search">
       <div class={searchStyles.searchBox}>
         <input type="search" name="q" minLength="2" maxLength="100" style={{width:"100%"}} onChange={handleSearch} placeholder="Enter your search terms..."></input>
-        {terms && <p>Searching for: {terms}</p>}
+      </div>
+      <div>
+        {terms && <p>{terms.length} results out of {nodes.length}</p>}
       </div>
       <ul>
         {matches.map((node, i) => {

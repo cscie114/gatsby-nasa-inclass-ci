@@ -5,14 +5,6 @@ function paginate({ createPage, items, itemsPerPage, pathPrefix, component }) {
 
   for (let i = 0; i < numPages; i++) {
     const currentPage = i + 1;
-    const prevPage = currentPage > 1 ? currentPage - 1 : null;
-    const nextPage = currentPage < numPages ? currentPage + 1 : null;
-
-    let previousPagePath = '';
-    if(prevPage) {
-        previousPagePath = (prevPage === 1 ? pathPrefix : `${pathPrefix}/${prevPage}`);
-    }
-    let nextPagePath = nextPage ? `${pathPrefix}/${nextPage}` : '';
 
     createPage({
       path: currentPage === 1 ? pathPrefix : `${pathPrefix}/${currentPage}`,
@@ -22,8 +14,6 @@ function paginate({ createPage, items, itemsPerPage, pathPrefix, component }) {
         skip: i * itemsPerPage,
         numPages: numPages,
         currentPage: currentPage,
-        previousPagePath: previousPagePath,
-        nextPagePath: nextPagePath,
         pathPrefix: pathPrefix,
       },
     });
