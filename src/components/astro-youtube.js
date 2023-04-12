@@ -7,7 +7,7 @@ const AstroYoutube = ({ data }) => {
       height="315"
       src={data.url}
       title="YouTube video player"
-      frameborder="0"
+      frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
     ></iframe>

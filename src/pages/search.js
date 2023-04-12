@@ -38,14 +38,14 @@ const SearchPage = ({ data }) => {
 
   return (
     <Layout pageTitle="Search">
-      <div class={searchStyles.searchBox}>
+      <div className={searchStyles.searchBox}>
         <input type="search" name="q" minLength="2" maxLength="100" style={{width:"100%"}} onChange={handleSearch} placeholder="Enter your search terms..."></input>
       </div>
       <div>
         {terms && <p>{matches.length} results out of {nodes.length}</p>}
       </div>
       <ul>
-        {matches.map((node, i) => {
+        {matches.map((node) => {
           return (
               <li key={node.id}>
                   <Link to={"/archives/" + node.date}>{node.date} {node.title}</Link>

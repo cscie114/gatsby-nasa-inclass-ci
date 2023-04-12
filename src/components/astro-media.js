@@ -10,9 +10,9 @@ const AstroMedia = ({ data }) => {
   } else if (data.media_type === "video") {
     media = <AstroYoutube data={data}></AstroYoutube>;
   } else {
-    media = <div>Unsupported media type "{data.media_type}"</div>;
+    media = <div>Unsupported media type &quot;{data.media_type}&quot;</div>;
   }
-  return <div class={astroMediaItem}>{media}</div>;
+  return <div className={astroMediaItem}>{media}</div>;
 };
 
 export default AstroMedia;

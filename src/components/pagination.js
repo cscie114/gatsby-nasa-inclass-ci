@@ -28,7 +28,7 @@ const Pagination = ({ currentPage, numPages, pathPrefix }) => {
       {range(1, numPages + 1).map((pageNum) => {
         const className = currentPage === pageNum ? styles.active : "";
         return (
-          <Link className={className} to={pagePath(pathPrefix, pageNum)}>
+          <Link key={pageNum} className={className} to={pagePath(pathPrefix, pageNum)}>
             {pageNum}
           </Link>
         );
